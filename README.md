@@ -1,8 +1,11 @@
 This is an Insiten code challenge, this project is not completed yet.
 
+You can visit here to see the [app demo](https://insiten-dashboard.firebaseapp.com/)
+
 ## Features need to completed
 
 - [x] Connect to firebase realtime database
+- [x] Deploy to firebase hosting
 - [ ] Add function
 - [ ] Edit function
 - [ ] Delete function 
