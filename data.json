@@ -1,0 +1,29 @@
+{
+  "companies":[
+    {
+      "key": "1",
+      "name": "Google",
+      "description": "Internet Searching",
+      "address": "Mountain View, California",
+      "tags": ["search", "technology", "ad"]
+    }, {
+      "key": "2",
+      "name": "Apple",
+      "description": "Designs, develops, and sells consumer electronics",
+      "address": "Cupertino, California",
+      "tags": ["iphone", "technology", "product"]
+    }, {
+      "key": "3",
+      "name": "Microsoft",
+      "description": "Develops, manufactures and sells software, electronics, personal computers",
+      "address": "Redmond, Washington",
+      "tags": ["pc", "technology", "software"]
+    }, {
+      "key": "4",
+      "name": "Amazon",
+      "description": "e-commerce, cloud computing, and artificial intelligence",
+      "address": "Redmond, Washington",
+      "tags": ["e-commerce", "technology", "cloud"]
+    }
+  ]
+}

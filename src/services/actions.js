@@ -7,7 +7,7 @@ export const addToDo = newToDo => async dispatch => {
 export const completeToDo = completeToDo => async dispatch => {
   actions.child(completeToDo).remove();
 };
-export const fetchList = () => async dispatch => {
+export const fetchList = (name) => async dispatch => {
   actions.on("value", snapshot => {
     dispatch({
       type: 'something',
@@ -15,3 +15,5 @@ export const fetchList = () => async dispatch => {
     });
   });
 };
+
+export const test = () =>  'hello world';

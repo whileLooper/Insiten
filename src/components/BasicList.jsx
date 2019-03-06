@@ -21,27 +21,40 @@ import {
   DatePicker,
   Select,
 } from 'antd';
-import { fetchList } from '../services/actions';
+
+
+import Firebase from './Firebase';
 
 const FormItem = Form.Item;
-const { Column, ColumnGroup } = Table;
-
-
 
 class BasicList extends PureComponent {
-  state = { visible: false, done: false };
+  state = {
+    data: [],
+    visible: false,
+    done: false,
+    loading: true,
+  };
   formLayout = {
     labelCol: { span: 7 },
     wrapperCol: { span: 13 },
   };
 
+  componentDidMount = () => {
+    this.props.firebase.companies().on('value', snapshot => {
+      this.setState({
+        data: snapshot.val(),
+        loading: false,
+      });
+    });
+  }
+  
+
   handleComplete = (event) => {
-    const {completeTodo} = this.props;
-    fetchList(completeTodo);
   };
 
   showModal = () => {
     console.log('click show modal action');
+    this.handleComplete('somthing');
     this.setState({
       visible: true,
       current: undefined,
@@ -49,7 +62,6 @@ class BasicList extends PureComponent {
   };
 
   showEditModal = item => {
-    this.handleCancel('somthing');
     this.setState({
       visible: true,
       current: item,
@@ -99,11 +111,11 @@ class BasicList extends PureComponent {
   };
 
   selectCompany = () => {
-    console.log('selecting different company');
+    
   }
 
   render() {
-    const { visible, done, current = {} } = this.state;
+    const { data, visible, done, current = {} } = this.state;
     const getModalContent = () => {
       return (
         <Form onSubmit={this.handleSubmit}>
@@ -164,33 +176,6 @@ class BasicList extends PureComponent {
       ),
     }];
     
-    const data = [{
-      key: '1',
-      name: 'Google',
-      description: 'Internet Searching',
-      address: 'Mountain View, California',
-      tags: ['search', 'technology', 'ad'],
-    }, {
-      key: '2',
-      name: 'Apple',
-      description: 'Designs, develops, and sells consumer electronics',
-      address: 'Cupertino, California',
-      tags: ['iphone', 'technology', 'product'],
-    }, {
-      key: '3',
-      name: 'Microsoft',
-      description: 'Develops, manufactures and sells software, electronics, personal computers',
-      address: 'Redmond, Washington',
-      tags: ['pc', 'technology', 'software'],
-    }, {
-      key: '4',
-      name: 'Amazon',
-      description: 'e-commerce, cloud computing, and artificial intelligence',
-      address: 'Redmond, Washington',
-      tags: ['e-commerce', 'technology', 'cloud'],
-    }
-  ];
-
     return (
       <div style={{margin: '24px'}}>
         <Button

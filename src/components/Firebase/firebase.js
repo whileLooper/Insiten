@@ -11,19 +11,19 @@ var config = {
   messagingSenderId: "783456743261"
 };
 
-let databaseRef = null;
-
 class Firebase {
   constructor() {
     console.log('initialing firebase...');
     app.initializeApp(config);
     this.auth = app.auth();
-    firebase.database().ref();
-    databaseRef = firebase.database().ref();
+    this.db = app.database();
   }
 
+  // api
+  companies = () => this.db.ref('/companies');
+
+  oCreateUserWithEmailAndPassword = (email, password) =>
+    this.auth.createUserWithEmailAndPassword(email, password);
 }
 
-
-export const actions = databaseRef;
 export default Firebase;
