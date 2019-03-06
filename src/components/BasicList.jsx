@@ -206,7 +206,7 @@ class BasicList extends PureComponent {
         </Button>
         <Table columns={columns} dataSource={data} onRowClick={this.selectCompany()} />
         <Modal
-          title={done ? null : `任务${current.id ? '编辑' : '添加'}`}
+          title={done ? null : `${current.id ? 'Edit' : 'Add'}`}
           className="standardListForm"
           width={640}
           bodyStyle={done ? { padding: '72px 0' } : { padding: '28px 0 0' }}
