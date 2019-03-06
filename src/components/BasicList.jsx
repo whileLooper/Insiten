@@ -21,6 +21,7 @@ import {
   DatePicker,
   Select,
 } from 'antd';
+import { fetchList } from '../services/actions';
 
 const FormItem = Form.Item;
 const { Column, ColumnGroup } = Table;
@@ -33,6 +34,12 @@ class BasicList extends PureComponent {
     labelCol: { span: 7 },
     wrapperCol: { span: 13 },
   };
+
+  handleComplete = (event) => {
+    const {completeTodo} = this.props;
+    fetchList(completeTodo);
+  };
+
   showModal = () => {
     console.log('click show modal action');
     this.setState({
@@ -42,6 +49,7 @@ class BasicList extends PureComponent {
   };
 
   showEditModal = item => {
+    this.handleCancel('somthing');
     this.setState({
       visible: true,
       current: item,
