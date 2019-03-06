@@ -2,7 +2,7 @@ This is an Insiten code challenge, this project is not completed yet.
 
 ## Features need to completed
 
-- [ ] Connect to firebase realtime database
+- [x] Connect to firebase realtime database
 - [ ] Add function
 - [ ] Edit function
 - [ ] Delete function 

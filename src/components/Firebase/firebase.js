@@ -22,8 +22,6 @@ class Firebase {
   // api
   companies = () => this.db.ref('/companies');
 
-  oCreateUserWithEmailAndPassword = (email, password) =>
-    this.auth.createUserWithEmailAndPassword(email, password);
 }
 
 export default Firebase;
